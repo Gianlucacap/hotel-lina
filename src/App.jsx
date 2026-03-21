@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function App() {
   const HERO_VIDEO = "/video/hero.mp4";
@@ -41,6 +41,14 @@ export default function App() {
 
   const [tab, setTab] = useState("camere");
   const [lightbox, setLightbox] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const scrollToId = (id) => {
     const el = document.getElementById(id);
@@ -48,6 +56,12 @@ export default function App() {
   };
 
   const photos = GALLERY[tab] || [];
+  const padX = isMobile ? 16 : 30;
+  const heroTitleSize = isMobile ? 52 : 92;
+  const heroLeadSize = isMobile ? 17 : 20;
+  const topbarFont = isMobile ? 13 : 14;
+  const logoSmall = isMobile ? 46 : 58;
+  const heroLogo = isMobile ? 72 : 96;
 
   const s = {
     page: {
@@ -63,13 +77,13 @@ export default function App() {
     topbar: {
       background: "#0d2b36",
       color: "rgba(255,255,255,.95)",
-      padding: "10px 30px",
+      padding: `10px ${padX}px`,
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "center",
-      gap: 12,
+      alignItems: isMobile ? "flex-start" : "center",
+      gap: 10,
       flexWrap: "wrap",
-      fontSize: 14,
+      fontSize: topbarFont,
       boxSizing: "border-box",
     },
 
@@ -80,7 +94,7 @@ export default function App() {
     },
 
     cta: {
-      padding: "13px 20px",
+      padding: isMobile ? "12px 16px" : "13px 20px",
       borderRadius: 999,
       border: 0,
       background: "#28a6c8",
@@ -89,12 +103,13 @@ export default function App() {
       cursor: "pointer",
       boxShadow: "0 14px 32px rgba(40,166,200,.24)",
       whiteSpace: "nowrap",
-      fontSize: 15,
+      fontSize: isMobile ? 14 : 15,
+      width: isMobile ? "100%" : "auto",
     },
 
     hero: {
       position: "relative",
-      minHeight: "82vh",
+      minHeight: isMobile ? "88vh" : "82vh",
       overflow: "hidden",
       width: "100%",
     },
@@ -112,7 +127,7 @@ export default function App() {
       position: "absolute",
       inset: 0,
       background:
-        "linear-gradient(90deg, rgba(7,14,19,.75) 0%, rgba(7,14,19,.52) 50%, rgba(7,14,19,.18) 100%)",
+        "linear-gradient(90deg, rgba(7,14,19,.78) 0%, rgba(7,14,19,.56) 50%, rgba(7,14,19,.20) 100%)",
     },
 
     heroFade: {
@@ -130,7 +145,7 @@ export default function App() {
       position: "relative",
       zIndex: 3,
       width: "100%",
-      padding: "110px 30px 60px",
+      padding: isMobile ? "26px 16px 42px" : "110px 30px 60px",
       boxSizing: "border-box",
       color: "white",
     },
@@ -143,30 +158,43 @@ export default function App() {
     },
 
     heroLogo: {
-      width: 96,
-      height: 96,
+      width: heroLogo,
+      height: heroLogo,
       objectFit: "contain",
-      borderRadius: 22,
+      borderRadius: isMobile ? 18 : 22,
       background: "rgba(255,255,255,.92)",
-      padding: 10,
+      padding: 8,
       boxShadow: "0 20px 46px rgba(0,0,0,.28)",
+    },
+
+    logo: {
+      width: logoSmall,
+      height: logoSmall,
+      objectFit: "contain",
+      borderRadius: 16,
+      background: "white",
+      border: "1px solid rgba(16,32,43,.10)",
+      padding: 6,
+      boxShadow: "0 8px 24px rgba(16,32,43,.06)",
+      flexShrink: 0,
     },
 
     pill: {
       display: "inline-flex",
       alignItems: "center",
-      padding: "10px 15px",
+      padding: isMobile ? "9px 12px" : "10px 15px",
       borderRadius: 999,
       border: "1px solid rgba(255,255,255,.26)",
       background: "rgba(255,255,255,.10)",
       fontWeight: 900,
-      fontSize: 13,
+      fontSize: isMobile ? 12 : 13,
       backdropFilter: "blur(4px)",
+      maxWidth: "100%",
     },
 
     h1: {
-      margin: "22px 0 10px",
-      fontSize: "clamp(52px, 8vw, 92px)",
+      margin: "18px 0 10px",
+      fontSize: heroTitleSize,
       lineHeight: 0.98,
       fontWeight: 980,
       letterSpacing: "-0.04em",
@@ -175,7 +203,7 @@ export default function App() {
     },
 
     lead: {
-      fontSize: 20,
+      fontSize: heroLeadSize,
       maxWidth: 780,
       lineHeight: 1.6,
       color: "rgba(255,255,255,.95)",
@@ -186,25 +214,29 @@ export default function App() {
       display: "flex",
       gap: 12,
       flexWrap: "wrap",
-      marginTop: 28,
+      marginTop: 24,
+      width: isMobile ? "100%" : "auto",
     },
 
     ghostBtn: {
-      padding: "13px 20px",
+      padding: isMobile ? "12px 16px" : "13px 20px",
       borderRadius: 999,
       border: "1px solid rgba(255,255,255,.28)",
       background: "rgba(255,255,255,.10)",
       color: "white",
       fontWeight: 950,
       cursor: "pointer",
-      fontSize: 15,
+      fontSize: isMobile ? 14 : 15,
+      width: isMobile ? "100%" : "auto",
     },
 
     chips: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+      gridTemplateColumns: isMobile
+        ? "1fr"
+        : "repeat(auto-fit, minmax(220px, 1fr))",
       gap: 12,
-      marginTop: 32,
+      marginTop: 28,
       maxWidth: 1180,
     },
 
@@ -216,11 +248,12 @@ export default function App() {
       fontWeight: 900,
       color: "white",
       backdropFilter: "blur(4px)",
+      fontSize: isMobile ? 14 : 15,
     },
 
     section: {
       width: "100%",
-      padding: "64px 30px",
+      padding: isMobile ? "42px 16px" : "64px 30px",
       boxSizing: "border-box",
     },
 
@@ -234,17 +267,18 @@ export default function App() {
     },
 
     sectionTitle: {
-      fontSize: "clamp(28px, 3vw, 40px)",
+      fontSize: isMobile ? 28 : 40,
       fontWeight: 980,
       margin: "0 0 10px",
       letterSpacing: "-0.03em",
+      lineHeight: 1.1,
     },
 
     sectionText: {
       opacity: 0.72,
       margin: "0 0 24px",
       maxWidth: 860,
-      fontSize: 16,
+      fontSize: isMobile ? 15 : 16,
       lineHeight: 1.65,
     },
 
@@ -266,11 +300,14 @@ export default function App() {
       fontWeight: 900,
       cursor: "pointer",
       boxShadow: active ? "0 10px 24px rgba(13,43,54,.16)" : "none",
+      fontSize: isMobile ? 14 : 15,
     }),
 
     gallery: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+      gridTemplateColumns: isMobile
+        ? "1fr"
+        : "repeat(auto-fit, minmax(260px, 1fr))",
       gap: 16,
       width: "100%",
     },
@@ -286,7 +323,7 @@ export default function App() {
 
     photo: {
       width: "100%",
-      height: 230,
+      height: isMobile ? 240 : 230,
       objectFit: "cover",
       display: "block",
       cursor: "pointer",
@@ -308,7 +345,9 @@ export default function App() {
 
     preventivoGrid: {
       display: "grid",
-      gridTemplateColumns: "minmax(320px, 1.15fr) minmax(280px, .85fr)",
+      gridTemplateColumns: isMobile
+        ? "1fr"
+        : "minmax(320px, 1.15fr) minmax(280px, .85fr)",
       gap: 18,
       alignItems: "start",
     },
@@ -317,7 +356,7 @@ export default function App() {
       background: "white",
       border: "1px solid rgba(16,32,43,.08)",
       borderRadius: 24,
-      padding: 22,
+      padding: isMobile ? 18 : 22,
       boxShadow: "0 18px 42px rgba(16,32,43,.06)",
     },
 
@@ -328,7 +367,7 @@ export default function App() {
 
     inputRow: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
       gap: 12,
     },
 
@@ -366,6 +405,7 @@ export default function App() {
       cursor: "pointer",
       fontSize: 15,
       boxShadow: "0 12px 30px rgba(40,166,200,.22)",
+      width: isMobile ? "100%" : "auto",
     },
 
     contactTitle: {
@@ -378,6 +418,7 @@ export default function App() {
       opacity: 0.76,
       marginBottom: 14,
       lineHeight: 1.6,
+      fontSize: isMobile ? 14 : 15,
     },
 
     contactLink: {
@@ -400,12 +441,12 @@ export default function App() {
       background: "rgba(0,0,0,.76)",
       display: "grid",
       placeItems: "center",
-      padding: 18,
+      padding: isMobile ? 10 : 18,
       zIndex: 100,
     },
 
     lightboxInner: {
-      width: "min(1200px, 96vw)",
+      width: isMobile ? "96vw" : "min(1200px, 96vw)",
       borderRadius: 20,
       overflow: "hidden",
       border: "1px solid rgba(255,255,255,.18)",
@@ -426,6 +467,7 @@ export default function App() {
       padding: 12,
       color: "rgba(255,255,255,.88)",
       fontSize: 14,
+      flexWrap: "wrap",
     },
 
     close: {
@@ -440,7 +482,7 @@ export default function App() {
 
     footer: {
       width: "100%",
-      padding: "26px 30px 36px",
+      padding: isMobile ? "22px 16px 28px" : "26px 30px 36px",
       boxSizing: "border-box",
       borderTop: "1px solid rgba(16,32,43,.08)",
       opacity: 0.75,
@@ -475,6 +517,7 @@ export default function App() {
           loop
           playsInline
           preload="auto"
+          poster="/logo/logo.png"
         />
         <div style={s.heroOverlay} />
         <div style={s.heroFade} />
@@ -603,10 +646,7 @@ export default function App() {
             </div>
 
             <div style={{ display: "grid", gap: 10 }}>
-              <a
-                href={`tel:${PHONE.replaceAll(" ", "")}`}
-                style={s.contactLink}
-              >
+              <a href={`tel:${PHONE.replaceAll(" ", "")}`} style={s.contactLink}>
                 {PHONE}
               </a>
               <a href={`mailto:${EMAIL}`} style={s.contactLink}>
