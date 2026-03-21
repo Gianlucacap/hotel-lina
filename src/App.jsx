@@ -493,20 +493,8 @@ export default function App() {
 
   return (
     <div style={s.page}>
-      <div style={s.topbar}>
-        <div>Fronte mare • Roseto degli Abruzzi</div>
-        <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
-          <a href={`tel:${PHONE.replaceAll(" ", "")}`} style={s.topLink}>
-            {PHONE}
-          </a>
-          <a href="#gallery" style={s.topLink}>
-            Foto
-          </a>
-          <a href="#preventivo" style={s.topLink}>
-            Preventivo
-          </a>
-        </div>
-      </div>
+      
+    
 
       <section style={s.hero}>
         <video
