@@ -609,22 +609,100 @@ export default function App() {
                 );
               }}
             >
-              <div style={s.inputRow}>
-                <input style={s.input} placeholder="Nome" required />
-                <input style={s.input} placeholder="Cognome" required />
-              </div>
+        <div style={s.inputRow}>
+  <input style={s.input} name="nome" placeholder="Nome" required />
+  <input style={s.input} name="cognome" placeholder="Cognome" required />
+</div>
 
-              <input style={s.input} type="email" placeholder="Email" required />
-              <input style={s.input} type="tel" placeholder="Telefono (opzionale)" />
-              <textarea
-                style={s.textarea}
-                placeholder="Periodo, numero persone, bambini, richieste particolari..."
-              />
+<div style={s.inputRow}>
+  <input style={s.input} name="checkin" type="date" required />
+  <input style={s.input} name="checkout" type="date" required />
+</div>
+
+<input style={s.input} name="email" type="email" placeholder="Email" required />
+<input style={s.input} name="telefono" type="tel" placeholder="Telefono (opzionale)" />
+<textarea
+  style={s.textarea}
+  name="messaggio"
+  placeholder="Numero persone, bambini, richieste particolari..."
+/>
               <button style={s.submit} type="submit">
                 Invia richiesta
               </button>
             </form>
-          </div>
+          </div><form
+  style={s.form}
+  action="https://formspree.io/f/mreyvqkd"
+  method="POST"
+>
+  {/* Oggetto email */}
+  <input
+    type="hidden"
+    name="_subject"
+    value="Nuova richiesta preventivo - Hotel Lina"
+  />
+
+  {/* Nome + Cognome */}
+  <div style={s.inputRow}>
+    <input
+      style={s.input}
+      name="nome"
+      placeholder="Nome"
+      required
+    />
+    <input
+      style={s.input}
+      name="cognome"
+      placeholder="Cognome"
+      required
+    />
+  </div>
+
+  {/* Check-in + Check-out */}
+  <div style={s.inputRow}>
+    <input
+      style={s.input}
+      name="checkin"
+      type="date"
+      required
+    />
+    <input
+      style={s.input}
+      name="checkout"
+      type="date"
+      required
+    />
+  </div>
+
+  {/* Email */}
+  <input
+    style={s.input}
+    name="email"
+    type="email"
+    placeholder="Email"
+    required
+  />
+
+  {/* Telefono */}
+  <input
+    style={s.input}
+    name="telefono"
+    type="tel"
+    placeholder="Telefono (opzionale)"
+  />
+
+  {/* Messaggio */}
+  <textarea
+    style={s.textarea}
+    name="messaggio"
+    placeholder="Numero persone, bambini, richieste particolari..."
+  />
+
+  {/* Bottone */}
+  <button style={s.submit} type="submit">
+    Invia richiesta
+  </button>
+</form>
 
           <div style={s.card}>
             <div style={s.contactTitle}>Contatti</div>
