@@ -56,11 +56,8 @@ export default function App() {
   };
 
   const photos = GALLERY[tab] || [];
-  const padX = isMobile ? 16 : 30;
   const heroTitleSize = isMobile ? 52 : 92;
   const heroLeadSize = isMobile ? 17 : 20;
-  const topbarFont = isMobile ? 13 : 14;
-  const logoSmall = isMobile ? 46 : 58;
   const heroLogo = isMobile ? 72 : 96;
 
   const s = {
@@ -72,25 +69,6 @@ export default function App() {
       minHeight: "100vh",
       width: "100%",
       overflowX: "hidden",
-    },
-
-    topbar: {
-      background: "#0d2b36",
-      color: "rgba(255,255,255,.95)",
-      padding: `10px ${padX}px`,
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: isMobile ? "flex-start" : "center",
-      gap: 10,
-      flexWrap: "wrap",
-      fontSize: topbarFont,
-      boxSizing: "border-box",
-    },
-
-    topLink: {
-      color: "rgba(255,255,255,.95)",
-      textDecoration: "none",
-      fontWeight: 700,
     },
 
     cta: {
@@ -165,18 +143,6 @@ export default function App() {
       background: "rgba(255,255,255,.92)",
       padding: 8,
       boxShadow: "0 20px 46px rgba(0,0,0,.28)",
-    },
-
-    logo: {
-      width: logoSmall,
-      height: logoSmall,
-      objectFit: "contain",
-      borderRadius: 16,
-      background: "white",
-      border: "1px solid rgba(16,32,43,.10)",
-      padding: 6,
-      boxShadow: "0 8px 24px rgba(16,32,43,.06)",
-      flexShrink: 0,
     },
 
     pill: {
@@ -493,9 +459,6 @@ export default function App() {
 
   return (
     <div style={s.page}>
-      
-    
-
       <section style={s.hero}>
         <video
           style={s.heroVideo}
@@ -602,107 +565,51 @@ export default function App() {
           <div style={s.card}>
             <form
               style={s.form}
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert(
-                  "Perfetto! Questo è un prototipo: nel prossimo passaggio colleghiamo davvero email o WhatsApp."
-                );
-              }}
+              action="https://formspree.io/f/mreyvqkd"
+              method="POST"
             >
-        <div style={s.inputRow}>
-  <input style={s.input} name="nome" placeholder="Nome" required />
-  <input style={s.input} name="cognome" placeholder="Cognome" required />
-</div>
+              <input
+                type="hidden"
+                name="_subject"
+                value="Nuova richiesta preventivo - Hotel Lina"
+              />
 
-<div style={s.inputRow}>
-  <input style={s.input} name="checkin" type="date" required />
-  <input style={s.input} name="checkout" type="date" required />
-</div>
+              <div style={s.inputRow}>
+                <input style={s.input} name="nome" placeholder="Nome" required />
+                <input style={s.input} name="cognome" placeholder="Cognome" required />
+              </div>
 
-<input style={s.input} name="email" type="email" placeholder="Email" required />
-<input style={s.input} name="telefono" type="tel" placeholder="Telefono (opzionale)" />
-<textarea
-  style={s.textarea}
-  name="messaggio"
-  placeholder="Numero persone, bambini, richieste particolari..."
-/>
+              <div style={s.inputRow}>
+                <input style={s.input} name="checkin" type="date" required />
+                <input style={s.input} name="checkout" type="date" required />
+              </div>
+
+              <input
+                style={s.input}
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+              />
+
+              <input
+                style={s.input}
+                name="telefono"
+                type="tel"
+                placeholder="Telefono (opzionale)"
+              />
+
+              <textarea
+                style={s.textarea}
+                name="messaggio"
+                placeholder="Numero persone, bambini, richieste particolari..."
+              />
+
               <button style={s.submit} type="submit">
                 Invia richiesta
               </button>
             </form>
-          </div><form
-  style={s.form}
-  action="https://formspree.io/f/mreyvqkd"
-  method="POST"
->
-  {/* Oggetto email */}
-  <input
-    type="hidden"
-    name="_subject"
-    value="Nuova richiesta preventivo - Hotel Lina"
-  />
-
-  {/* Nome + Cognome */}
-  <div style={s.inputRow}>
-    <input
-      style={s.input}
-      name="nome"
-      placeholder="Nome"
-      required
-    />
-    <input
-      style={s.input}
-      name="cognome"
-      placeholder="Cognome"
-      required
-    />
-  </div>
-
-  {/* Check-in + Check-out */}
-  <div style={s.inputRow}>
-    <input
-      style={s.input}
-      name="checkin"
-      type="date"
-      required
-    />
-    <input
-      style={s.input}
-      name="checkout"
-      type="date"
-      required
-    />
-  </div>
-
-  {/* Email */}
-  <input
-    style={s.input}
-    name="email"
-    type="email"
-    placeholder="Email"
-    required
-  />
-
-  {/* Telefono */}
-  <input
-    style={s.input}
-    name="telefono"
-    type="tel"
-    placeholder="Telefono (opzionale)"
-  />
-
-  {/* Messaggio */}
-  <textarea
-    style={s.textarea}
-    name="messaggio"
-    placeholder="Numero persone, bambini, richieste particolari..."
-  />
-
-  {/* Bottone */}
-  <button style={s.submit} type="submit">
-    Invia richiesta
-  </button>
-</form>
+          </div>
 
           <div style={s.card}>
             <div style={s.contactTitle}>Contatti</div>
@@ -721,8 +628,7 @@ export default function App() {
             </div>
 
             <div style={s.note}>
-              Nota: questa è una demo. Nel prossimo step possiamo collegare il
-              form a email, WhatsApp o un vero gestionale richieste.
+              Compila il modulo per ricevere un preventivo personalizzato direttamente via email.
             </div>
           </div>
         </div>
