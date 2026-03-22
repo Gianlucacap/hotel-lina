@@ -502,12 +502,7 @@ export default function App() {
             </button>
           </div>
 
-          <div style={s.chips}>
-            <div style={s.chip}>Spiaggia a pochi passi</div>
-            <div style={s.chip}>Atmosfera familiare</div>
-            <div style={s.chip}>Cucina genuina</div>
-            <div style={s.chip}>Perfetto per bambini</div>
-          </div>
+         
         </div>
       </section>
 
