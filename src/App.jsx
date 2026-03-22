@@ -501,8 +501,6 @@ export default function App() {
               Guarda foto
             </button>
           </div>
-
-         
         </div>
       </section>
 
@@ -513,22 +511,10 @@ export default function App() {
           Una selezione di immagini per raccontare l’atmosfera dell’Hotel Lina
           e la qualità dell’esperienza sul mare.
         </p>
-
-        <div style={s.tabs}>
-          <button style={s.tab(tab === "camere")} onClick={() => setTab("camere")}>
-            Camere
-          </button>
-          <button style={s.tab(tab === "hotel")} onClick={() => setTab("hotel")}>
-            Hotel
-          </button>
-          <button style={s.tab(tab === "cucina")} onClick={() => setTab("cucina")}>
-            Cucina
-          </button>
-          <button style={s.tab(tab === "spiaggia")} onClick={() => setTab("spiaggia")}>
-            Spiaggia
-          </button>
-        </div>
-
+        <button onClick={() => setTab("hotel")}>Hotel</button>
+<button onClick={() => setTab("spiaggia")}>Spiaggia</button>
+<button onClick={() => setTab("cucina")}>Cucina</button>
+<button onClick={() => setTab("camere")}>Camere</button>
         <div style={s.gallery}>
           {photos.map((src, index) => (
             <div key={src} style={s.photoWrap}>
