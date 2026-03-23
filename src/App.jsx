@@ -9,18 +9,18 @@ export default function App() {
 
   const GALLERY = useMemo(
     () => ({
-      camere: [
-        "/gallery/camere/CAMERA - 1.jpg",
-        "/gallery/camere/CAMERA - 2.jpg",
-        "/gallery/camere/CAMERA - 3.jpg",
-        "/gallery/camere/CAMERA - 4.jpg",
-      ],
       hotel: [
         "/gallery/hotel/HOTEL - 1.jpg",
         "/gallery/hotel/HOTEL - 2.jpg",
         "/gallery/hotel/HOTEL - 3.jpg",
         "/gallery/hotel/HOTEL - 4.jpg",
         "/gallery/hotel/HOTEL - 5.jpg",
+      ],
+      spiaggia: [
+        "/gallery/spiaggia/SPIAGGIA - 1.jpg",
+        "/gallery/spiaggia/SPIAGGIA - 2.jpg",
+        "/gallery/spiaggia/SPIAGGIA - 3.jpg",
+        "/gallery/spiaggia/SPIAGGIA - 4.jpg",
       ],
       cucina: [
         "/gallery/cucina/CUCINA - 1.jpg",
@@ -29,17 +29,17 @@ export default function App() {
         "/gallery/cucina/CUCINA - 4.jpg",
         "/gallery/cucina/CUCINA - 5.jpg",
       ],
-      spiaggia: [
-        "/gallery/spiaggia/SPIAGGIA - 1.jpg",
-        "/gallery/spiaggia/SPIAGGIA - 2.jpg",
-        "/gallery/spiaggia/SPIAGGIA - 3.jpg",
-        "/gallery/spiaggia/SPIAGGIA - 4.jpg",
+      camere: [
+        "/gallery/camere/CAMERA - 1.jpg",
+        "/gallery/camere/CAMERA - 2.jpg",
+        "/gallery/camere/CAMERA - 3.jpg",
+        "/gallery/camere/CAMERA - 4.jpg",
       ],
     }),
     []
   );
 
-  const [tab, setTab] = useState("camere");
+  const [tab, setTab] = useState("hotel");
   const [lightbox, setLightbox] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -196,27 +196,6 @@ export default function App() {
       width: isMobile ? "100%" : "auto",
     },
 
-    chips: {
-      display: "grid",
-      gridTemplateColumns: isMobile
-        ? "1fr"
-        : "repeat(auto-fit, minmax(220px, 1fr))",
-      gap: 12,
-      marginTop: 28,
-      maxWidth: 1180,
-    },
-
-    chip: {
-      padding: "14px 16px",
-      borderRadius: 18,
-      border: "1px solid rgba(255,255,255,.22)",
-      background: "rgba(255,255,255,.10)",
-      fontWeight: 900,
-      color: "white",
-      backdropFilter: "blur(4px)",
-      fontSize: isMobile ? 14 : 15,
-    },
-
     section: {
       width: "100%",
       padding: isMobile ? "42px 16px" : "64px 30px",
@@ -256,7 +235,7 @@ export default function App() {
     },
 
     tab: (active) => ({
-      padding: "11px 15px",
+      padding: isMobile ? "10px 14px" : "11px 15px",
       borderRadius: 999,
       border: active
         ? "1px solid rgba(13,43,54,.18)"
@@ -267,6 +246,9 @@ export default function App() {
       cursor: "pointer",
       boxShadow: active ? "0 10px 24px rgba(13,43,54,.16)" : "none",
       fontSize: isMobile ? 14 : 15,
+      outline: "none",
+      WebkitTapHighlightColor: "transparent",
+      appearance: "none",
     }),
 
     gallery: {
@@ -294,19 +276,6 @@ export default function App() {
       display: "block",
       cursor: "pointer",
       background: "#eef2f7",
-    },
-
-    photoLabel: {
-      position: "absolute",
-      left: 12,
-      bottom: 12,
-      padding: "8px 12px",
-      borderRadius: 999,
-      background: "rgba(0,0,0,.48)",
-      color: "white",
-      fontWeight: 800,
-      fontSize: 13,
-      backdropFilter: "blur(6px)",
     },
 
     preventivoGrid: {
@@ -337,6 +306,19 @@ export default function App() {
       gap: 12,
     },
 
+    inputWrap: {
+      display: "grid",
+      gap: 6,
+    },
+
+    fieldLabel: {
+      fontSize: 13,
+      fontWeight: 800,
+      color: "#10202b",
+      opacity: 0.8,
+      paddingLeft: 4,
+    },
+
     input: {
       padding: "14px 14px",
       borderRadius: 16,
@@ -346,6 +328,7 @@ export default function App() {
       background: "white",
       boxSizing: "border-box",
       width: "100%",
+      color: "#10202b",
     },
 
     textarea: {
@@ -359,6 +342,7 @@ export default function App() {
       background: "white",
       boxSizing: "border-box",
       width: "100%",
+      color: "#10202b",
     },
 
     submit: {
@@ -511,12 +495,24 @@ export default function App() {
           Una selezione di immagini per raccontare l’atmosfera dell’Hotel Lina
           e la qualità dell’esperienza sul mare.
         </p>
-        <button onClick={() => setTab("hotel")}>Hotel</button>
-<button onClick={() => setTab("spiaggia")}>Spiaggia</button>
-<button onClick={() => setTab("cucina")}>Cucina</button>
-<button onClick={() => setTab("camere")}>Camere</button>
+
+        <div style={s.tabs}>
+          <button style={s.tab(tab === "hotel")} onClick={() => setTab("hotel")}>
+            Hotel
+          </button>
+          <button style={s.tab(tab === "spiaggia")} onClick={() => setTab("spiaggia")}>
+            Spiaggia
+          </button>
+          <button style={s.tab(tab === "cucina")} onClick={() => setTab("cucina")}>
+            Cucina
+          </button>
+          <button style={s.tab(tab === "camere")} onClick={() => setTab("camere")}>
+            Camere
+          </button>
+        </div>
+
         <div style={s.gallery}>
-          {photos.map((src, index) => (
+          {photos.map((src) => (
             <div key={src} style={s.photoWrap}>
               <img
                 src={src}
@@ -528,7 +524,6 @@ export default function App() {
                   e.currentTarget.style.display = "none";
                 }}
               />
-              <div style={s.photoLabel}>Foto {index + 1}</div>
             </div>
           ))}
         </div>
@@ -561,8 +556,15 @@ export default function App() {
               </div>
 
               <div style={s.inputRow}>
-                <input style={s.input} name="checkin" type="date" required />
-                <input style={s.input} name="checkout" type="date" required />
+                <div style={s.inputWrap}>
+                  <label style={s.fieldLabel}>Check-in</label>
+                  <input style={s.input} name="checkin" type="date" required />
+                </div>
+
+                <div style={s.inputWrap}>
+                  <label style={s.fieldLabel}>Check-out</label>
+                  <input style={s.input} name="checkout" type="date" required />
+                </div>
               </div>
 
               <input
