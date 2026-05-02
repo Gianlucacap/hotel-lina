@@ -480,7 +480,7 @@ heroFade: {
 
           <div style={s.heroBtns}>
             <button style={s.cta} onClick={() => scrollToId("preventivo")}>
-              Verifica disponibilità
+              Richiedi disponibilità
             </button>
             <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
               Guarda foto
