@@ -444,50 +444,53 @@ ghostBtn: {
 
   return (
     <div style={s.page}>
-      <section style={s.hero}>
-        <video
-          style={s.heroVideo}
-          src={HERO_VIDEO}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/logo/logo.png"
-        />
-        <div style={s.heroOverlay} />
-        <div style={s.heroFade} />
+     <section style={s.hero}>
+  <video
+    style={s.heroVideo}
+    src={HERO_VIDEO}
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload="auto"
+    poster="/logo/logo.png"
+  />
 
-        <div style={s.heroInner}>
-          <div style={s.heroTop}>
-            <img
-              src={LOGO}
-              alt="Logo Hotel Lina"
-              style={s.heroLogo}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-            <div style={s.pill}>Fronte mare • Roseto degli Abruzzi</div>
-          </div>
+  <div style={s.heroOverlay} />
+  <div style={s.heroFade} />
 
-          <h1 style={s.h1}>Hotel Lina</h1>
+  <div style={s.heroInner}>
+    <div style={s.heroTop}>
+      <img
+        src={LOGO}
+        alt="Logo Hotel Lina"
+        style={s.heroLogo}
+        onError={(e) => {
+          e.currentTarget.style.display = "none";
+        }}
+      />
 
-          <p style={s.lead}>
-            Vacanze sul mare a Roseto degli Abruzzi: accoglienza familiare,
-            cucina curata e relax per famiglie e coppie.
-          </p>
+      <div style={s.pill}>Fronte mare • Roseto degli Abruzzi</div>
+    </div>
 
-<button style={s.cta} onClick={() => scrollToId("preventivo")}>
-  Richiedi disponibilità
-</button>
-            </button>
-            <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
-              Guarda foto
-            </button>
-          </div>
-        </div>
-      </section>
+    <h1 style={s.h1}>Hotel Lina</h1>
+
+    <p style={s.lead}>
+      Vacanze sul mare a Roseto degli Abruzzi: accoglienza familiare,
+      cucina curata e relax per famiglie e coppie.
+    </p>
+
+    <div style={s.heroBtns}>
+      <button style={s.cta} onClick={() => scrollToId("preventivo")}>
+        Richiedi disponibilità
+      </button>
+
+      <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
+        Guarda foto
+      </button>
+    </div>
+  </div>
+</section>
 
       <section id="gallery" style={s.section}>
         <div style={s.sectionEyebrow}>Gallery</div>
