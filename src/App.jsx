@@ -92,32 +92,33 @@ export default function App() {
       width: "100%",
     },
 
-    heroVideo: {
-      position: "absolute",
-      inset: 0,
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      transform: "scale(1.03)",
-    },
+heroVideo: {
+  position: "absolute",
+  inset: 0,
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  transform: "scale(1.03)",
+  filter: "contrast(1.05) brightness(1.05)",
+},
 
-    heroOverlay: {
-      position: "absolute",
-      inset: 0,
-      background:
-        "linear-gradient(90deg, rgba(7,14,19,.78) 0%, rgba(7,14,19,.56) 50%, rgba(7,14,19,.20) 100%)",
-    },
+heroOverlay: {
+  position: "absolute",
+  inset: 0,
+  background:
+    "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%)",
+},
 
-    heroFade: {
-      position: "absolute",
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height: 120,
-      background:
-        "linear-gradient(180deg, rgba(251,248,242,0) 0%, rgba(251,248,242,1) 100%)",
-      zIndex: 2,
-    },
+heroFade: {
+  position: "absolute",
+  left: 0,
+  right: 0,
+  bottom: 0,
+  height: 60,
+  background:
+    "linear-gradient(180deg, rgba(251,248,242,0) 0%, rgba(251,248,242,0.6) 100%)",
+  zIndex: 2,
+},
 
     heroInner: {
       position: "relative",
