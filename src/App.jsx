@@ -177,13 +177,14 @@ heroFade: {
       margin: 0,
     },
 
-    heroBtns: {
-      display: "flex",
-      gap: 12,
-      flexWrap: "wrap",
-      marginTop: 24,
-      width: isMobile ? "100%" : "auto",
-    },
+heroBtns: {
+  display: "flex",
+  flexDirection: "column",   // 👈 questo è il punto chiave
+  gap: 12,
+  marginTop: 24,
+  width: isMobile ? "100%" : "auto",
+  alignItems: "flex-start",  // opzionale (allinea a sinistra)
+},
 
     ghostBtn: {
       padding: isMobile ? "12px 16px" : "13px 20px",
