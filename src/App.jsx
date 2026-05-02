@@ -478,9 +478,9 @@ heroFade: {
             cucina curata e relax per famiglie e coppie.
           </p>
 
-          <div style={s.heroBtns}>
-            <button style={s.cta} onClick={() => scrollToId("preventivo")}>
-              Richiedi disponibilità
+<button style={s.cta} onClick={() => scrollToId("preventivo")}>
+  Richiedi disponibilità
+</button>
             </button>
             <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
               Guarda foto
