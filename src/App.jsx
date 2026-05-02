@@ -72,7 +72,7 @@ export default function App() {
     },
 
 cta: {
-  padding: "13px 20px",
+  padding: isMobile ? "12px 16px" : "13px 20px",
   borderRadius: 999,
   border: 0,
   background: "#28a6c8",
@@ -80,8 +80,9 @@ cta: {
   fontWeight: 950,
   cursor: "pointer",
   boxShadow: "0 14px 32px rgba(40,166,200,.24)",
-  fontSize: 15,
-  width: "260px",   // 👈 AGGIUNGI QUESTO
+  whiteSpace: "nowrap",
+  fontSize: isMobile ? 14 : 15,
+  width: "260px",   // 👈 QUI
 },
 
     hero: {
@@ -178,22 +179,22 @@ heroFade: {
 
 heroBtns: {
   display: "flex",
-  flexDirection: "column",   // 👈 verticale
+  flexDirection: "column",   // 👈 mette in verticale
   gap: 12,
   marginTop: 24,
   alignItems: "flex-start",  // allineati a sinistra
 },
 
 ghostBtn: {
-  padding: "13px 20px",
+  padding: isMobile ? "12px 16px" : "13px 20px",
   borderRadius: 999,
   border: "1px solid rgba(255,255,255,.28)",
   background: "rgba(255,255,255,.10)",
   color: "white",
   fontWeight: 950,
   cursor: "pointer",
-  fontSize: 15,
-  width: "260px",   // 👈 AGGIUNGI QUESTO
+  fontSize: isMobile ? 14 : 15,
+  width: "260px",   // 👈 QUI
 },
 
     section: {
