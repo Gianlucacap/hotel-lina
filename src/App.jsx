@@ -179,10 +179,10 @@ heroFade: {
 
 heroBtns: {
   display: "flex",
-  flexDirection: "column",   // 👈 mette in verticale
   gap: 12,
+  flexWrap: "wrap",
   marginTop: 24,
-  alignItems: "flex-start",  // allineati a sinistra
+  alignItems: "center",
 },
 
 ghostBtn: {
