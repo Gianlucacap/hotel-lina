@@ -71,19 +71,31 @@ export default function App() {
       overflowX: "hidden",
     },
 
-cta: {
-  padding: isMobile ? "12px 16px" : "13px 20px",
-  borderRadius: 999,
-  border: 0,
-  background: "#28a6c8",
-  color: "white",
-  fontWeight: 950,
-  cursor: "pointer",
-  boxShadow: "0 14px 32px rgba(40,166,200,.24)",
-  whiteSpace: "nowrap",
-  fontSize: isMobile ? 14 : 15,
-  width: "260px",   // 👈 QUI
-},
+    cta: {
+      padding: isMobile ? "12px 16px" : "13px 20px",
+      borderRadius: 999,
+      border: 0,
+      background: "#28a6c8",
+      color: "white",
+      fontWeight: 950,
+      cursor: "pointer",
+      boxShadow: "0 14px 32px rgba(40,166,200,.24)",
+      whiteSpace: "nowrap",
+      fontSize: isMobile ? 14 : 15,
+      width: isMobile ? "100%" : 260,
+    },
+
+    ghostBtn: {
+      padding: isMobile ? "12px 16px" : "13px 20px",
+      borderRadius: 999,
+      border: "1px solid rgba(255,255,255,.28)",
+      background: "rgba(255,255,255,.10)",
+      color: "white",
+      fontWeight: 950,
+      cursor: "pointer",
+      fontSize: isMobile ? 14 : 15,
+      width: isMobile ? "100%" : 260,
+    },
 
     hero: {
       position: "relative",
@@ -92,33 +104,33 @@ cta: {
       width: "100%",
     },
 
-heroVideo: {
-  position: "absolute",
-  inset: 0,
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  transform: "scale(1.03)",
-  filter: "contrast(1.05) brightness(1.05)",
-},
+    heroVideo: {
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      transform: "scale(1.03)",
+      filter: "contrast(1.05) brightness(1.05)",
+    },
 
-heroOverlay: {
-  position: "absolute",
-  inset: 0,
-  background:
-    "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%)",
-},
+    heroOverlay: {
+      position: "absolute",
+      inset: 0,
+      background:
+        "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%)",
+    },
 
-heroFade: {
-  position: "absolute",
-  left: 0,
-  right: 0,
-  bottom: 0,
-  height: 60,
-  background:
-    "linear-gradient(180deg, rgba(251,248,242,0) 0%, rgba(251,248,242,0.6) 100%)",
-  zIndex: 2,
-},
+    heroFade: {
+      position: "absolute",
+      left: 0,
+      right: 0,
+      bottom: 0,
+      height: 60,
+      background:
+        "linear-gradient(180deg, rgba(251,248,242,0) 0%, rgba(251,248,242,0.6) 100%)",
+      zIndex: 2,
+    },
 
     heroInner: {
       position: "relative",
@@ -176,26 +188,6 @@ heroFade: {
       color: "rgba(255,255,255,.95)",
       margin: 0,
     },
-
-heroBtns: {
-  display: "flex",
-  gap: 12,
-  flexWrap: "wrap",
-  marginTop: 24,
-  alignItems: "center",
-},
-
-ghostBtn: {
-  padding: isMobile ? "12px 16px" : "13px 20px",
-  borderRadius: 999,
-  border: "1px solid rgba(255,255,255,.28)",
-  background: "rgba(255,255,255,.10)",
-  color: "white",
-  fontWeight: 950,
-  cursor: "pointer",
-  fontSize: isMobile ? 14 : 15,
-  width: "260px",   // 👈 QUI
-},
 
     section: {
       width: "100%",
@@ -262,7 +254,6 @@ ghostBtn: {
     },
 
     photoWrap: {
-      position: "relative",
       overflow: "hidden",
       borderRadius: 20,
       background: "white",
@@ -386,6 +377,35 @@ ghostBtn: {
       lineHeight: 1.6,
     },
 
+    mapBox: {
+      overflow: "hidden",
+      borderRadius: 24,
+      border: "1px solid rgba(16,32,43,.10)",
+      boxShadow: "0 18px 42px rgba(16,32,43,.08)",
+      marginBottom: 34,
+    },
+
+    contactGrid: {
+      display: "grid",
+      gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+      gap: 28,
+    },
+
+    contactBigTitle: {
+      fontSize: isMobile ? 28 : 34,
+      margin: "0 0 14px",
+      color: "#00759b",
+      textTransform: "uppercase",
+      fontWeight: 950,
+    },
+
+    contactInfo: {
+      fontSize: 16,
+      lineHeight: 1.7,
+      color: "#4f5d66",
+      margin: 0,
+    },
+
     lightbox: {
       position: "fixed",
       inset: 0,
@@ -430,34 +450,7 @@ ghostBtn: {
       fontWeight: 950,
       cursor: "pointer",
     },
-mapBox: {
-  overflow: "hidden",
-  borderRadius: 24,
-  border: "1px solid rgba(16,32,43,.10)",
-  boxShadow: "0 18px 42px rgba(16,32,43,.08)",
-  marginBottom: 34,
-},
 
-contactGrid: {
-  display: "grid",
-  gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-  gap: 28,
-},
-
-contactBigTitle: {
-  fontSize: isMobile ? 28 : 34,
-  margin: "0 0 14px",
-  color: "#00759b",
-  textTransform: "uppercase",
-  fontWeight: 950,
-},
-
-contactInfo: {
-  fontSize: 16,
-  lineHeight: 1.7,
-  color: "#4f5d66",
-  margin: 0,
-},
     footer: {
       width: "100%",
       padding: isMobile ? "22px 16px 28px" : "26px 30px 36px",
@@ -471,80 +464,73 @@ contactInfo: {
 
   return (
     <div style={s.page}>
-     <section style={s.hero}>
-  <video
-    style={s.heroVideo}
-    src={HERO_VIDEO}
-    autoPlay
-    muted
-    loop
-    playsInline
-    preload="auto"
-    poster="/logo/logo.png"
-  />
+      <section style={s.hero}>
+        <video
+          style={s.heroVideo}
+          src={HERO_VIDEO}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/hero-poster.jpg"
+        />
 
-  <div style={s.heroOverlay} />
-  <div style={s.heroFade} />
+        <div style={s.heroOverlay} />
+        <div style={s.heroFade} />
 
-  <div style={s.heroInner}>
-    <div style={s.heroTop}>
-      <img
-        src={LOGO}
-        alt="Logo Hotel Lina"
-        style={s.heroLogo}
-        onError={(e) => {
-          e.currentTarget.style.display = "none";
-        }}
-      />
+        <div style={s.heroInner}>
+          <div style={s.heroTop}>
+            <img
+              src={LOGO}
+              alt="Logo Hotel Lina"
+              style={s.heroLogo}
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
 
-      <div style={s.pill}>Fronte mare • Roseto degli Abruzzi</div>
-    </div>
+            <div style={s.pill}>Fronte mare • Roseto degli Abruzzi</div>
+          </div>
 
-    <h1 style={s.h1}>Hotel Lina</h1>
+          <h1 style={s.h1}>Hotel Lina</h1>
 
-    <p style={s.lead}>
-      Vacanze sul mare a Roseto degli Abruzzi: accoglienza familiare,
-      cucina curata e relax per famiglie e coppie.
-    </p>
+          <p style={s.lead}>
+            Vacanze sul mare a Roseto degli Abruzzi: accoglienza familiare,
+            cucina curata e relax per famiglie e coppie.
+          </p>
 
-    <div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: 14,
-    marginTop: 24,
-    alignItems: "flex-start",
-  }}
->
-  <button
-    style={s.cta}
-    onClick={() => scrollToId("preventivo")}
-  >
-    Richiedi disponibilità
-  </button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginTop: 24,
+              gap: 14,
+            }}
+          >
+            <button style={s.cta} onClick={() => scrollToId("preventivo")}>
+              Richiedi disponibilità
+            </button>
 
-  <div
-    style={{
-      display: "flex",
-      gap: 12,
-      flexWrap: "wrap",
-    }}
-  >
-    <button
-      style={s.ghostBtn}
-      onClick={() => scrollToId("gallery")}
-    >
-      Guarda foto
-    </button>
+            <div
+              style={{
+                display: "flex",
+                gap: 12,
+                flexWrap: "wrap",
+              }}
+            >
+              <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
+                Guarda foto
+              </button>
 
-    <button
-      style={s.ghostBtn}
-      onClick={() => scrollToId("contatti")}
-    >
-      Contatti
-    </button>
-  </div>
-</div>
+              <button style={s.ghostBtn} onClick={() => scrollToId("contatti")}>
+                Contatti
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section id="gallery" style={s.section}>
         <div style={s.sectionEyebrow}>Gallery</div>
@@ -558,7 +544,10 @@ contactInfo: {
           <button style={s.tab(tab === "hotel")} onClick={() => setTab("hotel")}>
             Hotel
           </button>
-          <button style={s.tab(tab === "spiaggia")} onClick={() => setTab("spiaggia")}>
+          <button
+            style={s.tab(tab === "spiaggia")}
+            onClick={() => setTab("spiaggia")}
+          >
             Spiaggia
           </button>
           <button style={s.tab(tab === "cucina")} onClick={() => setTab("cucina")}>
@@ -589,7 +578,9 @@ contactInfo: {
 
       <section id="preventivo" style={s.section}>
         <div style={s.sectionEyebrow}>Preventivo</div>
-        <h2 style={s.sectionTitle}>Richiedi disponibilità e offerta personalizzata</h2>
+        <h2 style={s.sectionTitle}>
+          Richiedi disponibilità e offerta personalizzata
+        </h2>
         <p style={s.sectionText}>
           Compila il form con i tuoi dati: ti rispondiamo con la soluzione più
           adatta alle tue esigenze.
@@ -610,7 +601,12 @@ contactInfo: {
 
               <div style={s.inputRow}>
                 <input style={s.input} name="nome" placeholder="Nome" required />
-                <input style={s.input} name="cognome" placeholder="Cognome" required />
+                <input
+                  style={s.input}
+                  name="cognome"
+                  placeholder="Cognome"
+                  required
+                />
               </div>
 
               <div style={s.inputRow}>
@@ -669,60 +665,72 @@ contactInfo: {
             </div>
 
             <div style={s.note}>
-              Compila il modulo per ricevere un preventivo personalizzato direttamente via email.
+              Compila il modulo per ricevere un preventivo personalizzato
+              direttamente via email.
             </div>
           </div>
         </div>
       </section>
-<section id="contatti" style={s.section}>
-  <div style={s.sectionEyebrow}>Contatti</div>
-  <h2 style={s.sectionTitle}>Contattaci</h2>
-  <p style={s.sectionText}>
-    Siamo a Roseto degli Abruzzi, fronte mare. Contattaci per informazioni,
-    disponibilità e preventivi.
-  </p>
 
-  <div style={s.mapBox}>
-    <iframe
-      title="Mappa Hotel Lina"
-      src="https://www.google.com/maps?q=Hotel%20Lina%20Viale%20Marche%202%20Roseto%20degli%20Abruzzi&output=embed"
-      width="100%"
-      height="420"
-      style={{ border: 0 }}
-      allowFullScreen=""
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    />
-  </div>
+      <section id="contatti" style={s.section}>
+        <div style={s.sectionEyebrow}>Contatti</div>
+        <h2 style={s.sectionTitle}>Contattaci</h2>
+        <p style={s.sectionText}>
+          Siamo a Roseto degli Abruzzi, fronte mare. Contattaci per
+          informazioni, disponibilità e preventivi.
+        </p>
 
-  <div style={s.contactGrid}>
-    <div>
-      <h3 style={s.contactBigTitle}>Indirizzo</h3>
-      <p style={s.contactInfo}>
-        Viale Marche, 2<br />
-        64026 Roseto degli Abruzzi TE
-      </p>
-    </div>
+        <div style={s.mapBox}>
+          <iframe
+            title="Mappa Hotel Lina"
+            src="https://www.google.com/maps?q=Hotel%20Lina%20Viale%20Marche%202%20Roseto%20degli%20Abruzzi&output=embed"
+            width="100%"
+            height="420"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
 
-    <div>
-      <h3 style={s.contactBigTitle}>Telefoni</h3>
-      <p style={s.contactInfo}>
-        <a href="tel:+390858944509" style={s.contactLink}>+39 085 8944509</a><br />
-        <a href="tel:+3908534147" style={s.contactLink}>+39 085 34147</a><br />
-        <a href="tel:+393283114812" style={s.contactLink}>+39 328 3114812</a>
-      </p>
-    </div>
+        <div style={s.contactGrid}>
+          <div>
+            <h3 style={s.contactBigTitle}>Indirizzo</h3>
+            <p style={s.contactInfo}>
+              Viale Marche, 2
+              <br />
+              64026 Roseto degli Abruzzi TE
+            </p>
+          </div>
 
-    <div>
-      <h3 style={s.contactBigTitle}>E-mail</h3>
-      <p style={s.contactInfo}>
-        <a href="mailto:info@hotellina.net" style={s.contactLink}>
-          info@hotellina.net
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
+          <div>
+            <h3 style={s.contactBigTitle}>Telefoni</h3>
+            <p style={s.contactInfo}>
+              <a href="tel:+390858944509" style={s.contactLink}>
+                +39 085 8944509
+              </a>
+              <br />
+              <a href="tel:+3908534147" style={s.contactLink}>
+                +39 085 34147
+              </a>
+              <br />
+              <a href="tel:+393283114812" style={s.contactLink}>
+                +39 328 3114812
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h3 style={s.contactBigTitle}>E-mail</h3>
+            <p style={s.contactInfo}>
+              <a href="mailto:info@hotellina.net" style={s.contactLink}>
+                info@hotellina.net
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       <footer style={s.footer}>
         © {year} Hotel Lina • Roseto degli Abruzzi • Demo sito
       </footer>
