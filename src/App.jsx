@@ -82,7 +82,7 @@ export default function App() {
       boxShadow: "0 14px 32px rgba(40,166,200,.24)",
       whiteSpace: "nowrap",
       fontSize: isMobile ? 14 : 15,
-      width: isMobile ? "100%" : 260,
+      width: isMobile ? "100%" : 360,
     },
 
     ghostBtn: {
@@ -94,7 +94,7 @@ export default function App() {
       fontWeight: 950,
       cursor: "pointer",
       fontSize: isMobile ? 14 : 15,
-      width: isMobile ? "100%" : 260,
+      width: isMobile ? "100%" : 170,
     },
 
     hero: {
