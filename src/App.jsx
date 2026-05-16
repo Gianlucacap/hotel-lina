@@ -430,7 +430,34 @@ ghostBtn: {
       fontWeight: 950,
       cursor: "pointer",
     },
+mapBox: {
+  overflow: "hidden",
+  borderRadius: 24,
+  border: "1px solid rgba(16,32,43,.10)",
+  boxShadow: "0 18px 42px rgba(16,32,43,.08)",
+  marginBottom: 34,
+},
 
+contactGrid: {
+  display: "grid",
+  gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+  gap: 28,
+},
+
+contactBigTitle: {
+  fontSize: isMobile ? 28 : 34,
+  margin: "0 0 14px",
+  color: "#00759b",
+  textTransform: "uppercase",
+  fontWeight: 950,
+},
+
+contactInfo: {
+  fontSize: 16,
+  lineHeight: 1.7,
+  color: "#4f5d66",
+  margin: 0,
+},
     footer: {
       width: "100%",
       padding: isMobile ? "22px 16px 28px" : "26px 30px 36px",
@@ -488,6 +515,9 @@ ghostBtn: {
       <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
         Guarda foto
       </button>
+      <button style={s.ghostBtn} onClick={() => scrollToId("contatti")}>
+  Contatti
+</button>
     </div>
   </div>
 </section>
@@ -620,7 +650,55 @@ ghostBtn: {
           </div>
         </div>
       </section>
+<section id="contatti" style={s.section}>
+  <div style={s.sectionEyebrow}>Contatti</div>
+  <h2 style={s.sectionTitle}>Contattaci</h2>
+  <p style={s.sectionText}>
+    Siamo a Roseto degli Abruzzi, fronte mare. Contattaci per informazioni,
+    disponibilità e preventivi.
+  </p>
 
+  <div style={s.mapBox}>
+    <iframe
+      title="Mappa Hotel Lina"
+      src="https://www.google.com/maps?q=Hotel%20Lina%20Viale%20Marche%202%20Roseto%20degli%20Abruzzi&output=embed"
+      width="100%"
+      height="420"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  </div>
+
+  <div style={s.contactGrid}>
+    <div>
+      <h3 style={s.contactBigTitle}>Indirizzo</h3>
+      <p style={s.contactInfo}>
+        Viale Marche, 2<br />
+        64026 Roseto degli Abruzzi TE
+      </p>
+    </div>
+
+    <div>
+      <h3 style={s.contactBigTitle}>Telefoni</h3>
+      <p style={s.contactInfo}>
+        <a href="tel:+390858944509" style={s.contactLink}>+39 085 8944509</a><br />
+        <a href="tel:+3908534147" style={s.contactLink}>+39 085 34147</a><br />
+        <a href="tel:+393283114812" style={s.contactLink}>+39 328 3114812</a>
+      </p>
+    </div>
+
+    <div>
+      <h3 style={s.contactBigTitle}>E-mail</h3>
+      <p style={s.contactInfo}>
+        <a href="mailto:info@hotellina.net" style={s.contactLink}>
+          info@hotellina.net
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
       <footer style={s.footer}>
         © {year} Hotel Lina • Roseto degli Abruzzi • Demo sito
       </footer>
