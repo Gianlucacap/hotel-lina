@@ -507,18 +507,44 @@ contactInfo: {
       cucina curata e relax per famiglie e coppie.
     </p>
 
-    <div style={s.heroBtns}>
-      <button style={s.cta} onClick={() => scrollToId("preventivo")}>
-        Richiedi disponibilità
-      </button>
+    <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: 14,
+    marginTop: 24,
+    alignItems: "flex-start",
+  }}
+>
+  {/* Primo bottone */}
+  <button
+    style={s.cta}
+    onClick={() => scrollToId("preventivo")}
+  >
+    Richiedi disponibilità
+  </button>
 
-      <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
-        Guarda foto
-      </button>
-      <button style={s.ghostBtn} onClick={() => scrollToId("contatti")}>
-  Contatti
-</button>
-    </div>
+  {/* Seconda riga */}
+  <div
+    style={{
+      display: "flex",
+      gap: 12,
+      flexWrap: "wrap",
+    }}
+  >
+    <button
+      style={s.ghostBtn}
+      onClick={() => scrollToId("gallery")}
+    >
+      Guarda foto
+    </button>
+
+    <button
+      style={s.ghostBtn}
+      onClick={() => scrollToId("contatti")}
+    >
+      Contatti
+    </button>
   </div>
 </section>
 
