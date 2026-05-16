@@ -516,7 +516,6 @@ contactInfo: {
     alignItems: "flex-start",
   }}
 >
-  {/* Primo bottone */}
   <button
     style={s.cta}
     onClick={() => scrollToId("preventivo")}
@@ -524,7 +523,6 @@ contactInfo: {
     Richiedi disponibilità
   </button>
 
-  {/* Seconda riga */}
   <div
     style={{
       display: "flex",
@@ -546,7 +544,7 @@ contactInfo: {
       Contatti
     </button>
   </div>
-</section>
+</div>
 
       <section id="gallery" style={s.section}>
         <div style={s.sectionEyebrow}>Gallery</div>
