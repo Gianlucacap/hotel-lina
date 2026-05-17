@@ -268,46 +268,6 @@ export default function App() {
       boxShadow: "0 22px 52px rgba(16,32,43,.12)",
     },
 
-    servicesGrid: {
-      display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "repeat(4, 1fr)",
-      gap: 18,
-      marginTop: 22,
-    },
-
-    serviceCard: {
-      background: "white",
-      borderRadius: 24,
-      overflow: "hidden",
-      border: "1px solid rgba(16,32,43,.08)",
-      boxShadow: "0 18px 42px rgba(16,32,43,.06)",
-    },
-
-    serviceImage: {
-      width: "100%",
-      height: isMobile ? 230 : 190,
-      objectFit: "cover",
-      display: "block",
-    },
-
-    serviceBody: {
-      padding: 18,
-    },
-
-    serviceTitle: {
-      fontSize: 20,
-      fontWeight: 950,
-      margin: "0 0 8px",
-      color: "#10202b",
-    },
-
-    serviceText: {
-      fontSize: 15,
-      lineHeight: 1.65,
-      margin: 0,
-      color: "rgba(16,32,43,.72)",
-    },
-
     tabs: {
       display: "flex",
       gap: 10,
@@ -601,13 +561,7 @@ export default function App() {
               Richiedi disponibilità
             </button>
 
-            <div
-              style={{
-                display: "flex",
-                gap: 12,
-                flexWrap: "wrap",
-              }}
-            >
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <button style={s.ghostBtn} onClick={() => scrollToId("gallery")}>
                 Guarda foto
               </button>
@@ -622,26 +576,29 @@ export default function App() {
 
       <section id="hotel" style={s.sectionAlt}>
         <div style={s.sectionEyebrow}>Hotel</div>
-        <h2 style={s.sectionTitle}>L’Hotel Lina: mare, relax e accoglienza familiare</h2>
+        <h2 style={s.sectionTitle}>
+          L’Hotel Lina: mare, relax e accoglienza familiare
+        </h2>
         <p style={s.sectionText}>
-          Una struttura fronte mare a Roseto degli Abruzzi, pensata per chi desidera una
-          vacanza comoda, semplice e rilassante, con camere accoglienti, cucina curata e
-          spiaggia a pochi passi.
+          Una struttura fronte mare a Roseto degli Abruzzi, pensata per chi
+          desidera una vacanza comoda, semplice e rilassante, con camere
+          accoglienti, cucina curata e spiaggia a pochi passi.
         </p>
 
         <div style={s.hotelIntroGrid}>
           <div style={s.hotelIntroCard}>
             <h3 style={s.hotelIntroTitle}>Il comfort di una vacanza sul mare</h3>
             <p style={s.hotelIntroText}>
-              All’Hotel Lina trovi un ambiente familiare e ospitale, ideale per coppie,
-              famiglie e bambini. La posizione fronte mare rende il soggiorno pratico e
-              piacevole: in pochi passi sei in spiaggia, vicino alla passeggiata e ai
-              principali servizi di Roseto degli Abruzzi.
+              All’Hotel Lina trovi un ambiente familiare e ospitale, ideale per
+              coppie, famiglie e bambini. La posizione fronte mare rende il
+              soggiorno pratico e piacevole: in pochi passi sei in spiaggia,
+              vicino alla passeggiata e ai principali servizi di Roseto degli
+              Abruzzi.
               <br />
               <br />
-              La struttura offre camere confortevoli, spazi comuni curati e un’atmosfera
-              tranquilla, perfetta per chi cerca relax, buona cucina e una vacanza senza
-              pensieri.
+              La struttura offre camere confortevoli, spazi comuni curati e
+              un’atmosfera tranquilla, perfetta per chi cerca relax, buona
+              cucina e una vacanza senza pensieri.
             </p>
           </div>
 
@@ -651,76 +608,14 @@ export default function App() {
             style={s.hotelHeroImage}
           />
         </div>
-
-        <div style={s.servicesGrid}>
-          <div style={s.serviceCard}>
-            <img
-              src="/gallery/hotel/HOTEL - 1.jpg"
-              alt="Hotel Lina"
-              style={s.serviceImage}
-            />
-            <div style={s.serviceBody}>
-              <h3 style={s.serviceTitle}>Posizione fronte mare</h3>
-              <p style={s.serviceText}>
-                L’hotel si affaccia direttamente sul mare, in una zona comoda e centrale,
-                perfetta per vivere la spiaggia ogni giorno.
-              </p>
-            </div>
-          </div>
-
-          <div style={s.serviceCard}>
-            <img
-              src="/gallery/camere/CAMERA - 3.jpg"
-              alt="Camera Hotel Lina"
-              style={s.serviceImage}
-            />
-            <div style={s.serviceBody}>
-              <h3 style={s.serviceTitle}>Camere confortevoli</h3>
-              <p style={s.serviceText}>
-                Camere semplici, luminose e accoglienti, pensate per garantire riposo,
-                praticità e tranquillità durante il soggiorno.
-              </p>
-            </div>
-          </div>
-
-          <div style={s.serviceCard}>
-            <img
-              src="/gallery/cucina/CUCINA - 1.jpg"
-              alt="Cucina Hotel Lina"
-              style={s.serviceImage}
-            />
-            <div style={s.serviceBody}>
-              <h3 style={s.serviceTitle}>Cucina genuina</h3>
-              <p style={s.serviceText}>
-                Una cucina curata e familiare, con piatti pensati per rendere la vacanza
-                ancora più piacevole.
-              </p>
-            </div>
-          </div>
-
-          <div style={s.serviceCard}>
-            <img
-              src="/gallery/spiaggia/SPIAGGIA - 4.jpg"
-              alt="Spiaggia Hotel Lina"
-              style={s.serviceImage}
-            />
-            <div style={s.serviceBody}>
-              <h3 style={s.serviceTitle}>Ideale per famiglie</h3>
-              <p style={s.serviceText}>
-                Spiaggia vicina, ambiente tranquillo e servizi comodi rendono l’Hotel Lina
-                una scelta adatta anche alle famiglie con bambini.
-              </p>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section id="gallery" style={s.section}>
         <div style={s.sectionEyebrow}>Gallery</div>
         <h2 style={s.sectionTitle}>Scopri hotel, camere, cucina e spiaggia</h2>
         <p style={s.sectionText}>
-          Una selezione di immagini per raccontare l’atmosfera dell’Hotel Lina
-          e la qualità dell’esperienza sul mare.
+          Una selezione di immagini per raccontare l’atmosfera dell’Hotel Lina e
+          la qualità dell’esperienza sul mare.
         </p>
 
         <div style={s.tabs}>
